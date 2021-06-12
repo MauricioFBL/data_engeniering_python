@@ -25,7 +25,7 @@ def _new_scrapper(news_site_uid):
         if article:
             logger.info('Article fetched')
             articles.append(article)
-            break
+            
             # print(article.title)
 
     _save_articles(news_site_uid, articles)
