@@ -35,6 +35,7 @@ class HomePage(NewsPge):
 
 class ArticlePage(NewsPge):
     def __init__(self, news_site_uid, url):
+        self._url = url
         super().__init__(news_site_uid, url)
 
     @property
@@ -52,3 +53,7 @@ class ArticlePage(NewsPge):
             return result[0].text if len(result) else ''
         except:
             return ''
+    
+    @property
+    def url(self):
+        return self._url

@@ -25,7 +25,7 @@ def _new_scrapper(news_site_uid):
         if article:
             logger.info('Article fetched')
             articles.append(article)
-            
+            # break
             # print(article.title)
 
     _save_articles(news_site_uid, articles)
@@ -36,7 +36,7 @@ def _save_articles(news_site_uid, articles):
     out_file_name = f'{news_site_uid}_{now}_articles.csv'
     csv_headers = list(filter(lambda property: not property.startswith('_'),dir(articles[0])))
 
-    with open(out_file_name, mode='w+') as f:
+    with open(out_file_name, mode='w+', encoding = 'utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(csv_headers)
 
